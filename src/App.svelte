@@ -1,6 +1,6 @@
 <script lang="ts">
 	const buttons = [
-		["C", "~", "%", "/"],
+		["C", "⁺∕₋", "%", "/"],
 		[7, 8, 9, "x"],
 		[4, 5, 6, "-"],
 		[1, 2, 3, "+"],
@@ -9,13 +9,23 @@
 </script>
 
 <main>
-	<div class="display" />
-	<div class="buttons">
-		{#each buttons as row, index (index)}
-			{#each row as button (button)}
-				<button>{button}</button>
+	<div class="calc">
+		<div class="display">0</div>
+		<div class="buttons">
+			{#each buttons as row, i (i)}
+				{#each row as button, j (button)}
+					<button
+						class={i === 0 && j !== 3
+							? "btn-3"
+							: j === 3 || button === "="
+							? "btn-2"
+							: button === 0
+							? "btn-lg btn-1"
+							: "btn-1"}>{button}</button
+					>
+				{/each}
 			{/each}
-		{/each}
+		</div>
 	</div>
 </main>
 
@@ -25,23 +35,57 @@
 		display: grid;
 		min-height: 100vh;
 		place-content: center;
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+	}
+
+	.calc {
+		background-color: #1c1c1c;
+		border-radius: 20px;
+		display: flex;
+		flex-direction: column;
+		gap: 2vh;
+		padding: 3vh 2vw;
 	}
 
 	.display {
-		height: 10vh;
-		border: solid white;
+		color: white;
+		font-size: 9rem;
+		padding: 0 2rem;
+		text-align: end;
 	}
 
 	.buttons {
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr 1fr;
-		gap: 1px;
+		gap: 1rem;
 	}
 
 	button {
-		background-color: #334141;
-		border-radius: 10px;
+		border: none;
+		border-radius: 100%;
 		font-size: 3rem;
-		padding: 1rem 2rem;
+		font-weight: bolder;
+		padding: 2rem;
+	}
+
+	.btn-1 {
+		background-color: #333333;
+		color: white;
+	}
+
+	.btn-lg {
+		grid-column: span 2;
+		border-radius: calc(infinity * 1px);
+		text-align: start;
+		padding-left: 40px;
+	}
+
+	.btn-2 {
+		background-color: #ff9500;
+		color: white;
+	}
+
+	.btn-3 {
+		background-color: #a5a5a5;
 	}
 </style>
