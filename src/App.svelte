@@ -48,7 +48,7 @@
 		border-radius: 20px;
 		display: flex;
 		flex-direction: column;
-		gap: 2vh;
+		gap: 6vh;
 		padding: 3vh 2rem;
 		overflow: hidden;
 		width: 30vw;
@@ -59,7 +59,8 @@
 		display: flex;
 		flex-direction: row-reverse;
 		font-size: 9rem;
-		padding: 0 2rem;
+		padding: 0 1.4rem;
+		overflow: hidden;
 	}
 
 	.buttons {
@@ -95,5 +96,31 @@
 
 	.btn-3 {
 		background-color: #a5a5a5;
+	}
+
+	@media (width < 1800px) {
+		main {
+			max-height: 100dvh;
+		}
+
+		.calc {
+			max-height: 90dvh;
+			padding: 3vh 0.7rem;
+			width: 90vw;
+			max-width: 400px;
+		}
+
+		.display {
+			font-size: 4rem;
+		}
+
+		.buttons {
+			gap: 10px;
+		}
+
+		button {
+			font-size: 1.4rem;
+			padding: 1rem 1rem;
+		}
 	}
 </style>
