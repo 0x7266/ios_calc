@@ -49,7 +49,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: 2vh;
-		padding: 3vh 2vw;
+		padding: 3vh 2rem;
 		overflow: hidden;
 		width: 30vw;
 	}
