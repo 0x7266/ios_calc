@@ -1,7 +1,4 @@
 <script lang="ts">
-	const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-	const operators = ["+", "-", "x", "/"];
-	const otherButtons = ["C", "~", "%"];
 	const buttons = [
 		["C", "~", "%", "/"],
 		[7, 8, 9, "x"],
@@ -12,15 +9,13 @@
 </script>
 
 <main>
-	<div class="calc">
-		<div class="display" />
-		<div class="buttons">
-			{#each buttons as row}
-				{#each row as button}
-					<button>{button}</button>
-				{/each}
+	<div class="display" />
+	<div class="buttons">
+		{#each buttons as row, index (index)}
+			{#each row as button (button)}
+				<button>{button}</button>
 			{/each}
-		</div>
+		{/each}
 	</div>
 </main>
 
@@ -30,10 +25,6 @@
 		display: grid;
 		min-height: 100vh;
 		place-content: center;
-	}
-
-	.calc {
-		/* border: solid white; */
 	}
 
 	.display {
