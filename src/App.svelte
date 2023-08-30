@@ -50,13 +50,16 @@
 		flex-direction: column;
 		gap: 2vh;
 		padding: 3vh 2vw;
+		overflow: hidden;
+		width: 30vw;
 	}
 
 	.display {
 		color: white;
+		display: flex;
+		flex-direction: row-reverse;
 		font-size: 9rem;
 		padding: 0 2rem;
-		text-align: end;
 	}
 
 	.buttons {
