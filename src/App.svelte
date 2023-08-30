@@ -6,15 +6,20 @@
 		[1, 2, 3, "+"],
 		[0, ".", "="],
 	];
+	let total: string = "0";
+	function handleCLick(button: number | string) {
+		total = `${total}${button}`;
+	}
 </script>
 
 <main>
 	<div class="calc">
-		<div class="display">0</div>
+		<div class="display">{total}</div>
 		<div class="buttons">
 			{#each buttons as row, i (i)}
 				{#each row as button, j (button)}
 					<button
+						on:click={() => handleCLick(button)}
 						class={i === 0 && j !== 3
 							? "btn-3"
 							: j === 3 || button === "="
