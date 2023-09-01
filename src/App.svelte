@@ -28,7 +28,8 @@
 	}
 
 	function calculate(calculation: string) {
-		console.log(calculation.split(/[\+\-\/x]/g));
+		const values = calculation.match(/[0-9]\.*[0-9]*/g);
+		const operations = calculation.match(/[\+\-\/x]/g);
 	}
 </script>
 
