@@ -1,20 +1,40 @@
 <script lang="ts">
 	const buttons = [
 		["C", "⁺∕₋", "%", "/"],
-		[7, 8, 9, "x"],
-		[4, 5, 6, "-"],
-		[1, 2, 3, "+"],
-		[0, ".", "="],
+		["7", "8", "9", "x"],
+		["4", "5", "6", "-"],
+		["1", "2", "3", "+"],
+		["0", ".", "="],
 	];
-	let total: string = "0";
-	function handleCLick(button: number | string) {
-		total = `${total}${button}`;
+	let display: string = "0";
+	let currentValue = "";
+	function handleCLick(button: string) {
+		if (button === "=") {
+			calculate(display);
+			return;
+		}
+		if ((currentValue.includes(".") || currentValue === "") && button === ".") {
+			return;
+		}
+
+		if (["C", "⁺∕₋", "%", "/", "x", "-", "+", "="].includes(button)) {
+			currentValue = "";
+			display = display === "0" ? button : `${display}${button}`;
+			return;
+		}
+
+		display = display === "0" ? button : `${display}${button}`;
+		currentValue += button;
+	}
+
+	function calculate(calculation: string) {
+		console.log(calculation.split(/[\+\-\/x]/g));
 	}
 </script>
 
 <main>
 	<div class="calc">
-		<div class="display">{total}</div>
+		<div class="display">{display}</div>
 		<div class="buttons">
 			{#each buttons as row, i (i)}
 				{#each row as button, j (button)}
@@ -24,7 +44,7 @@
 							? "btn-3"
 							: j === 3 || button === "="
 							? "btn-2"
-							: button === 0
+							: button === "0"
 							? "btn-lg btn-1"
 							: "btn-1"}>{button}</button
 					>
