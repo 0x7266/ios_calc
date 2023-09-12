@@ -10,7 +10,7 @@
 	let currentValue = "";
 	function handleCLick(button: string) {
 		if (button === "=") {
-			eval(display);
+			display = eval(display);
 			return;
 		}
 		if ((currentValue.includes(".") || currentValue === "") && button === ".") {
