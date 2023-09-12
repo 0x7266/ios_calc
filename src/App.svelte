@@ -9,6 +9,9 @@
 	let display: string = "0";
 	let currentValue = "";
 	function handleCLick(button: string) {
+		if (display.at(-1) === ".") {
+			display = display.slice(0, -1);
+		}
 		if (button === "=") {
 			display = eval(display);
 			return;
@@ -16,7 +19,6 @@
 		if ((currentValue.includes(".") || currentValue === "") && button === ".") {
 			return;
 		}
-
 		if (["C", "⁺∕₋", "%", "/", "*", "-", "+", "="].includes(button)) {
 			if (button === "C") {
 				display = "0";
