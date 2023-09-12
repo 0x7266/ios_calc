@@ -18,6 +18,10 @@
 		}
 
 		if (["C", "⁺∕₋", "%", "/", "*", "-", "+", "="].includes(button)) {
+			if (button === "C") {
+				display = "0";
+				return;
+			}
 			currentValue = "";
 			display = display === "0" ? button : `${display}${button}`;
 			return;
