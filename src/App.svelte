@@ -1,7 +1,7 @@
 <script lang="ts">
 	const buttons = [
 		["C", "⁺∕₋", "%", "/"],
-		["7", "8", "9", "x"],
+		["7", "8", "9", "*"],
 		["4", "5", "6", "-"],
 		["1", "2", "3", "+"],
 		["0", ".", "="],
@@ -17,7 +17,7 @@
 			return;
 		}
 
-		if (["C", "⁺∕₋", "%", "/", "x", "-", "+", "="].includes(button)) {
+		if (["C", "⁺∕₋", "%", "/", "*", "-", "+", "="].includes(button)) {
 			currentValue = "";
 			display = display === "0" ? button : `${display}${button}`;
 			return;
