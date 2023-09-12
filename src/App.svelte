@@ -10,7 +10,7 @@
 	let currentValue = "";
 	function handleCLick(button: string) {
 		if (button === "=") {
-			calculate(display);
+			eval(display);
 			return;
 		}
 		if ((currentValue.includes(".") || currentValue === "") && button === ".") {
@@ -25,11 +25,6 @@
 
 		display = display === "0" ? button : `${display}${button}`;
 		currentValue += button;
-	}
-
-	function calculate(calculation: string) {
-		const values = calculation.match(/[0-9]\.*[0-9]*/g);
-		const operations = calculation.match(/[\+\-\/x]/g);
 	}
 </script>
 
